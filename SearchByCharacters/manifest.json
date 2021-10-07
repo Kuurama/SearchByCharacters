@@ -1,0 +1,20 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "SearchByCharacters",
+  "name": "SearchByCharacters",
+  "author": "Kuurama",
+  "version": "0.1.0",
+  "description": "Change the base game filter to allow filtering by characters instead of strict string filtering.",
+  "gameVersion": "1.16.4",
+  "dependsOn": {
+    "BSIPA": "^4.2.0"
+  },
+  "loadBefore": [
+    "SearchByMapperName",
+    "SearchFixes"
+  ],
+  "conflictsWith": {
+    "SearchByMapperName": "*",
+    "SearchFixes": "*"
+  }
+}

@@ -6,8 +6,8 @@
 		<LangVersion>8</LangVersion>
 		<Nullable>disable</Nullable>
 		<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-		<LocalRefsDir Condition="Exists('..\Refs')">..\Refs</LocalRefsDir>
-		<BeatSaberDir>$(LocalRefsDir)</BeatSaberDir>
+		<LocalRefsDir Condition="Exists('..\Refs')">C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</LocalRefsDir>
+		<BeatSaberDir>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</BeatSaberDir>
 		<AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
 		<DebugType>portable</DebugType>
 	</PropertyGroup>
@@ -71,7 +71,7 @@
 	<ItemGroup>
 		<None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
 		<None Include="Directory.Build.targets" Condition="Exists('Directory.Build.targets')" />
-		<None Include="SearchFixes.csproj.user" Condition="Exists('SearchFixes.csproj.user')" />
+		<None Include="SearchByCharacters.csproj.user" Condition="Exists('SearchByCharacters.csproj.user')" />
 	</ItemGroup>
 	
 	<ItemGroup>

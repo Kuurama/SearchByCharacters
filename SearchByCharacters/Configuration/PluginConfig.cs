@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using IPA.Config.Stores;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
-namespace SearchFixes.Configuration
+namespace SearchByCharacters.Configuration
 {
     internal class PluginConfig
     {

@@ -3,13 +3,13 @@ using System;
 using System.Reflection;
 using IPALogger = IPA.Logging.Logger;
 
-namespace SearchFixes
+namespace SearchByCharacters
 {
     [Plugin(RuntimeOptions.DynamicInit)]
     public class Plugin
     {
-        public const string HarmonyId = "com.github.rithik-b.SearchFixes";
-        internal static readonly HarmonyLib.Harmony harmony = new HarmonyLib.Harmony(HarmonyId);
+        public const string HARMONY_ID = "Kuurama-SearchByCharacters";
+        internal static readonly HarmonyLib.Harmony Harmony = new HarmonyLib.Harmony(HARMONY_ID);
 
         internal static Plugin Instance { get; private set; }
         internal static IPALogger Log { get; private set; }
@@ -20,10 +20,10 @@ namespace SearchFixes
         /// [Init] methods that use a Constructor or called before regular methods like InitWithConfig.
         /// Only use [Init] with one Constructor.
         /// </summary>
-        public Plugin(IPALogger logger)
+        public Plugin(IPALogger p_Logger)
         {
             Instance = this;
-            Plugin.Log = logger;
+            Plugin.Log = p_Logger;
             Plugin.Log?.Debug("Logger initialized.");
         }
 
@@ -86,12 +86,12 @@ namespace SearchFixes
             try
             {
                 Plugin.Log?.Debug("Applying Harmony patches.");
-                harmony.PatchAll(Assembly.GetExecutingAssembly());
+                Harmony.PatchAll(Assembly.GetExecutingAssembly());
             }
-            catch (Exception ex)
+            catch (Exception l_Ex)
             {
-                Plugin.Log?.Error("Error applying Harmony patches: " + ex.Message);
-                Plugin.Log?.Debug(ex);
+                Plugin.Log?.Error("Error applying Harmony patches: " + l_Ex.Message);
+                Plugin.Log?.Debug(l_Ex);
             }
         }
 
@@ -103,12 +103,12 @@ namespace SearchFixes
             try
             {
                 // Removes all patches with this HarmonyId
-                harmony.UnpatchAll(HarmonyId);
+                Harmony.UnpatchAll(HARMONY_ID);
             }
-            catch (Exception ex)
+            catch (Exception l_Ex)
             {
-                Plugin.Log?.Error("Error removing Harmony patches: " + ex.Message);
-                Plugin.Log?.Debug(ex);
+                Plugin.Log?.Error("Error removing Harmony patches: " + l_Ex.Message);
+                Plugin.Log?.Debug(l_Ex);
             }
         }
         #endregion
